@@ -14,7 +14,7 @@ colnames(out)<- c('Rend','sigma_t','Z_t')
   
   # lambda = 0.94
 w<- 0.94^(0:74)  
-  #here we estimate the sigma_76  
+  # here we estimate the 76th component for our volatility process  
 out$sigma_t[76]<- sum(w*out$Rend[75:1]^2)/sum(w) 
   #now the cycle recursively calculate the sigma_t array
 for (i in 77:length(out[,1])) {
