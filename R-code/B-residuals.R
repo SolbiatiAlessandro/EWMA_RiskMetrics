@@ -6,9 +6,9 @@ Z_t <- returns(sst)/sigma_t
 
 #Z_t is distributed as a standard normal, and we can test its autocorrelation to examine the correctness of our model
 
-qqplot(Z_t)
-acf(Z_t)
-pacf(Z_t)  
+qqnorm(Z_t)  #distributed as a normal?
+acf(Z_t[76:length(Z_t)])  #plot correlgram, start from 76 because the sigma_t is calculated from the 76th value (view A-volatility.R)
+pacf(Z_t[76:length(Z_t)])  #partial autocorrelation
 
 #we can execute a LjungBoxTest for the p-values of correlations till the 20th order of delay
 
