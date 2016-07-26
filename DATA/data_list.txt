@@ -1,0 +1,4 @@
+List of data for the EWMA volatility study
+
+– S&P500 daily prices from 2002 to 2012
+- FTSEMIB Stock : ENI daily prices  
