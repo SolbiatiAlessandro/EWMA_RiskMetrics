@@ -23,3 +23,4 @@ for (i in 77:length(out[,1])) {
 out$sigma_t<- sqrt(out$sigma_t)
   #here we have the volatilty
 
+plot(out,plot.type='single')
