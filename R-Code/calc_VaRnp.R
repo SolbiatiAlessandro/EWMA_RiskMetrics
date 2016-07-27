@@ -13,7 +13,7 @@ calc_VaRnp<- function(Serie,conf,VaR,s_startdate,s_enddate)
   
   require(timeSeries)
   
-  cc<- -returns(Serie) 
+  cc<- -(Serie) 
   cc<- window(cc,start=s_startdate,end=s_enddate)
   cc<- sort(as.vector(cc))
   out<- cc[ceiling(conf*length(cc))] #NP VaR
