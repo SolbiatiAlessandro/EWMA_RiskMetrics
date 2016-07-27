@@ -22,28 +22,15 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
   
   require(timeSeries)
   
-  #calculate returns of the prices and put it in a vector SSt
+  # Settings: calculate returns of the prices and put it in a vector SSt
   SSt<- cbind(Price_t=Serie,X_t=c(NA,returns(Serie)),sigma_t=NA,VaR=NA)
-  
-  
   Nt<- length(SSt[,1]) #total length of the serie
   Ns<- length(window(SSt[,2],start=s_startdate,end=s_enddate)) #length of the statistical sample
   
-  
   # Compute the conditioned volatility with the EWMA formula
-  # SSt$sigma_t=calc_Volatility(SSt$X_t)
-  
-  w<- 0.94^(0:74) #lambda = 0.94, T=77 as specified in RiskMetrics
-  SSt$sigma_t[77]<- sum(w*SSt$X_t[76:2]^2)/sum(w) #compute the 77th term 
-  for (s in 78:Nt){ #and all the others
-    SSt$sigma_t[s]<- 0.94*SSt$sigma_t[s-1]+0.06*SSt$X_t[s-1]^2
-  }
-  SSt$sigma_t<- sqrt(SSt$sigma_t) #here it is the conditioned volatility serie
-  
-  
+  SSt$sigma_t=calc_Volatility(SSt$X_t,Nt)
   
   # Compute standardized residuals 
-  
   Z_t<- as.timeSeries(SSt$X_t[77:Ns]/SSt$sigma_t[77:Ns])
   rownames(Z_t)<- rownames(SSt)[77:Ns] 
   
