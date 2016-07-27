@@ -27,7 +27,7 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
   
   
   Nt<- length(SSt[,1]) #total length of the serie
-  Ns<- length(window(SSt[,2],start=startdate,end=enddate)) #length of the statistical sample
+  Ns<- length(window(SSt[,2],start=s_startdate,end=s_enddate)) #length of the statistical sample
   
   
   # Compute the conditioned volatility with the EWMA formula
