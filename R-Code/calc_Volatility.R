@@ -10,7 +10,9 @@
 
  calc_Volatility <- function(X_t){
   
+  require(timeSeries)
   sigma_t <- c()
+  is.timeSeries(sigma_t)
   w<- 0.94^(0:74) #lambda = 0.94, T=77 as specified in RiskMetrics
   sigma_t[77]<- sum(w*X_t[76:2]^2)/sum(w) #compute the 77th term 
   for (s in 78:Nt){ #and all the others
