@@ -22,7 +22,7 @@ calc_VaRt <- function(Serie,conf,VaR,s_startdate,s_enddate)
   require(timeSeries)
   require(MASS)
   
-  cc<- -returns(Serie) 
+  cc<- -(Serie) 
   cc<- window(cc,start=s_startdate,end=s_enddate)
   cc<- as.vector(cc)
   
