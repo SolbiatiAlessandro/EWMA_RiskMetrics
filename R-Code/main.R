@@ -51,7 +51,7 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
 
   if (usage==1) { VaR_Z<- calc_VaRnp(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
   if (usage==2) { VaR_Z<- calc_VaRnorm(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
-  if (usage==3) { VaR_Z<- calc_VaRt(-Z_t,conf,VaR=TRUE,Rend=TRUE,...) }
+  if (usage==3) { VaR_Z<- calc_VaRt(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
   
   
   #Compute conditioned VaR serie
