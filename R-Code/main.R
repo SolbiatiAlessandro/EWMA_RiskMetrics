@@ -15,9 +15,9 @@
 #	calc_VaRt()					[calc_VaRt.R      ]
 #	exe_backtesting()			[exe_backtesting.R]
 #
-# The function return an matrix 'EWMA_result'
-# To obtain the p-value of the binomial test on the effectiviness of the computed Value at Risk use "as.numeric(EWMA_RiskMetrics(...)[1,5])"
-# For further informations see the documentations on the project page
+#     The function return an matrix 'EWMA_result'
+#     To obtain the p-value of the binomial test on the effectiviness of the computed Value at Risk use "as.numeric(EWMA_RiskMetrics(...)[1,5])"
+#     For further informations see the documentations on the project page
 
 
 EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
