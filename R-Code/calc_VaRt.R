@@ -31,17 +31,17 @@ calc_VaRt <- function(Serie,conf,VaR,s_startdate,s_enddate,init=c(0,1,1))
   
   if (VaR) { 
   	#computing VaR 
-    out<- Stime$estimate[1]+Stime$estimate[2]*qt(conf,Stime$estimate[3])
+    out<- ss$estimate[1]+ss$estimate[2]*qt(conf,ss$estimate[3])
   }
   
   else {
   	#computing ES 
-  	if (Stime$estimate[3]>1) {
-    	depo<- dt(qt(conf,Stime$estimate[3]),Stime$estimate[3])/(1-conf)
-    	depo<- depo*(Stime$estimate[3]+(qt(conf,Stime$estimate[3]))^2)/(Stime$estimate[3]-1)
+  	if (ss$estimate[3]>1) {
+    	depo<- dt(qt(conf,ss$estimate[3]),ss$estimate[3])/(1-conf)
+    	depo<- depo*(ss$estimate[3]+(qt(conf,ss$estimate[3]))^2)/(ss$estimate[3]-1)
     	}
   	else { depo<- NA }
-    out<- Stime$estimate[1]+Stime$estimate[2]*depo
+    out<- ss$estimate[1]+ss$estimate[2]*depo
   }
   
   as.numeric(out)
