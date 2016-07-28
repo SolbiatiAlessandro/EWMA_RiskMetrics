@@ -16,7 +16,7 @@ funzDens<- function(x,me,ds,nu)
   out
 }
    
-calc_VaRt <- function(Serie,conf,VaR,s_startdate,s_enddate)
+calc_VaRt <- function(Serie,conf,VaR,s_startdate,s_enddate,init=c(0,1,1))
 {
   
   require(timeSeries)
@@ -27,7 +27,7 @@ calc_VaRt <- function(Serie,conf,VaR,s_startdate,s_enddate)
   cc<- as.vector(cc)
   
   #through a likelihood function we estimate distribution parameters
-  ss<- fitdistr(cc,funzDens,start=list(me=iniz[1],ds=iniz[2],nu=iniz[3]))
+  ss<- fitdistr(cc,funzDens,start=list(me=init[1],ds=init[2],nu=init[3]))
   
   if (VaR) { 
   	#computing VaR 
