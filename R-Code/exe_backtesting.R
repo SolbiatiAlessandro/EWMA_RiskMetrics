@@ -13,7 +13,7 @@ exe_backtesting <- function(X_t,VaR,Ns,Nt,conf){
   w<- sum(X_t[(Ns+1):Nt]<(-VaR[(Ns+1):Nt])) #compute the number of excpetions
   ttest<- binom.test(w,Nt-Ns,1-conf,'t') #execute a binomial test on the numbers of exceptions
  
-  ttest_v<- c(ttest$estimate,out$p.value)
+  ttest_v<- c(ttest$estimate,ttest$p.value)
   names(ttest)<- c('Frequency','p-value')
   ttest
 }
