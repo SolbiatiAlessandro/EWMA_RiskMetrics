@@ -7,9 +7,19 @@ An implementation on R of the EWMA filter for volatility by RiskMetrics™ (JPMo
 ## Current State of the Project:
 
 
-### Implemented in 'R-code' folder the basic code for the EWMA filter:
+### Implemented in 'R-code' folder the basic functions for the EWMA filter:
 
-- function EWMA with supplementary fuctions also in the folder 
+- calculate the EWMA volatility with RiskMetrics formulas
+- compute the Value at Risk with three diffrent methods: non parametric, returns distributed as a normal, returns distributed as a student's t
+- binomial backtest of the Value at Risk correctness
+
+### Currently working EWMA function in the EWMA_executable.R file
+
+- once uploaded in the R's IDE the function correctly compute the p-values and returns the VaR series
+
+### Utility
+
+- pvs_mat.R allows to compute many EWMAs at different confidence levels and usage types all at once
 
 ## Further developments:
 
