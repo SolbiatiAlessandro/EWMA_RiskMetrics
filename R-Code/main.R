@@ -5,7 +5,7 @@
 #
 #	--------------------------------------------------------------------------
 #
-#	EWMA_RiskMetrics main function: computes and test all the process of the EWMA Volatility and VaR estimation
+#	EWMA_RiskMetrics main function: computes and tests all the processes of the EWMA Volatility and VaR estimations
 #
 #	functions required: (in the same folder)
 #
