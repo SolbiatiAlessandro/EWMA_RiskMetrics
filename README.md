@@ -9,10 +9,7 @@ An implementation on R of the EWMA filter for volatility by RiskMetrics™ (JPMo
 
 ### Implemented in 'R-code' folder the basic code for the EWMA filter:
 
-- "A-volatility.R" for the estimate of the volatility
-- "B-residuals.R" for the estimate of the residuals
-- "C-conditionedVaR.R" for the estimate of the conditioned VaR from the EWMAed volatility
-- "D-backtesting.R" for the binomial test that verify the correctness of the conditioned VaR and thus of the volatility models
+- function EWMA with supplementary fuctions also in the folder 
 
 ## Further developments:
 
