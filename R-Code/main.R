@@ -47,11 +47,12 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
   
 
   # backtesting
-  # exe_backtesting(X_t = SSt$X_t, VaR = SSt$VaR, Ns=Ns, Nt=Nt, conf=conf)
-  w<- sum(SSt$X_t[(Ns+1):Nt]<(-SSt$VaR[(Ns+1):Nt]))
-  ttest<- binom.test(w,Nt-Ns,1-conf,'t')
- 
-  ttest_v<- c(ttest$estimate,out$p.value)
-  names(ttest)<- c('Frequency','p-value')
-  ttest
+  test=exe_backtesting(X_t = SSt$X_t, VaR = SSt$VaR, Ns=Ns, Nt=Nt, conf=conf)
+  
+  #output
+  EWMA_result=cbind(SSt,test$p.value,test$estimate)
+  EWMA_result
+  
+  #to get the test$p.value use the command "as.numeric(EWMA_result[1,5])"
+  
 }
