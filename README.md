@@ -39,6 +39,8 @@ The project has been developed based on the Techincal Document by JPMorgan and R
 
 ##Italian bank associated risk
 
+The software has analysed the major banks in the FTSE.MIB and these are the Value at Risk obtained
+
 ![alt tag](https://cloud.githubusercontent.com/assets/20618047/17279595/5733f586-5778-11e6-9712-03b5f50d60b0.jpeg)
 
 
