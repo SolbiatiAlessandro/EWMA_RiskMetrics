@@ -5,6 +5,7 @@ This software use RiskMetrics™ volatility model to compute the risk associated
 
 Website of the project https://solbiatialessandro.github.io
 
+***
 
 ## Current State of the Project:
 
@@ -24,13 +25,20 @@ Website of the project https://solbiatialessandro.github.io
 
 
 
-
+***
 
 
 
 ##Reference for the project
 
 The project has been developed based on the Techincal Document by JPMorgan and Reuters (specifically on chapter 5 https://www.msci.com/documents/10199/5915b101-4206-4ba0-aee2-3449d5c7e95a)
+
+***
+
+##Case studies
+
+##Italian bank associated risk
+
 
 
 
