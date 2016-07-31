@@ -1,3 +1,12 @@
+#
+#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
+#	reference: Quantitative Finance for R (Bee, Santi 2013)
+#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
+#
+#	--------------------------------------------------------------------------
+#
+#	this is the R executable file with all Utilites functions
+#
 
 getprice <- function(name_code){
 	
@@ -12,22 +21,6 @@ getprice <- function(name_code){
 
 }
 
-
-#
-#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
-#	reference: Quantitative Finance for R (Bee, Santi 2013)
-#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
-#
-#	--------------------------------------------------------------------------
-#
-#	pvs_mat() : computes pvalues matrix
-#	rows: confidence level (0.9,0.95,0.99,0.995) 
-#	cols: usage (1,2,3)
-#
-#	Usage:
-#		my_matrix=pvs_mat(IBM,"start_date","end_date")
-#		my_matrix
-#
 
 pvs_mat <- function(serie,start,end){
 
@@ -62,20 +55,6 @@ pvs_mat <- function(serie,start,end){
 	pvs
 	}
 
-#
-#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
-#	reference: Quantitative Finance for R (Bee, Santi 2013)
-#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
-#
-#	--------------------------------------------------------------------------
-#
-#	max_pv(): return the max p-value and the method/conf of the test
-#	return a vect(max p-value, row, col)
-#	where row=1 <- NonParametric
-#		  row=2 <- Normal Distr
-#	      row=3 <- T Student Distr
-#	where col(1,2,3,4)=(0.90,0.95,0.99,0.995)
-
 
 max_pv <- function(serie,start,end){
 	
@@ -97,15 +76,7 @@ max_pv <- function(serie,start,end){
 	out <- c(pv,row,col)
 	out
 	
-}#
-#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
-#	reference: Quantitative Finance for R (Bee, Santi 2013)
-#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
-#
-#	--------------------------------------------------------------------------
-#
-#	study() : study a timeSerie defining the best method/confidence couple and return the last 10 VaR and ES
-# 
+}
 
 study <- function(serie,start,end){
 	
@@ -128,21 +99,6 @@ study <- function(serie,start,end){
 	
 }
 
-#
-#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
-#	reference: Quantitative Finance for R (Bee, Santi 2013)
-#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
-#
-#	--------------------------------------------------------------------------
-#
-
-#
-#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
-#	reference: Quantitative Finance for R (Bee, Santi 2013)
-#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
-#
-#	--------------------------------------------------------------------------
-#
 
 display_study <- function(titles, start, end){
 
