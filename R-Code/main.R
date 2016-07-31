@@ -16,11 +16,11 @@
 #	exe_backtesting()			[exe_backtesting.R]
 #
 #     The function return an matrix 'EWMA_result'
-#     To obtain the p-value of the binomial test on the effectiviness of the computed Value at Risk use "as.numeric(EWMA_RiskMetrics(...)[1,5])"
+#     To obtain the p-value of the binomial test on the effectiviness of the computed Value at Risk use "as.numeric(EWMA_RiskMetrics(...)%p.value[1])"
 #     For further informations see the documentations on the project page
 
 
-EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
+EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate,VaR)
 {
   
   require(timeSeries)
@@ -39,9 +39,9 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
   
   #VaR_Z estimations
 
-  if (usage==1) { VaR_Z<- calc_VaRnp(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
-  if (usage==2) { VaR_Z<- calc_VaRnorm(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
-  if (usage==3) { VaR_Z<- calc_VaRt(-Z_t,conf,VaR=TRUE,s_startdate=s_startdate,s_enddate=s_enddate) }
+  if (usage==1) { VaR_Z<- calc_VaRnp(-Z_t,conf,VaR,s_startdate=s_startdate,s_enddate=s_enddate) }
+  if (usage==2) { VaR_Z<- calc_VaRnorm(-Z_t,conf,VaR,s_startdate=s_startdate,s_enddate=s_enddate) }
+  if (usage==3) { VaR_Z<- calc_VaRt(-Z_t,conf,VaR,s_startdate=s_startdate,s_enddate=s_enddate) }
   #in the 3rd VaR_Z method (student's t) there could be a convergence error due to the initial value of the computing algorithm, 
   #to fix this issue just need to add the argument "init=c(a,b,c)" where a, b and c are three numbers you can aribtrarily choose
   
@@ -56,8 +56,9 @@ EWMA_RiskMetrics<- function(Serie,conf,usage,s_startdate,s_enddate)
   
   #output
   EWMA_result=cbind(SSt,test$p.value,test$estimate)
+  colnames(EWMA_result)=c("Prices","Returns","Volatility(>77th)","VaR(>77th)","p.value","exceed freq.")
   EWMA_result
   
-  #to get the test$p.value use the command "as.numeric(EWMA_RiskMetrics(...)[1,5])"
+  #to get the test$p.value use the command "as.numeric(EWMA_RiskMetrics(...)$p.value[1])"
   
 }
