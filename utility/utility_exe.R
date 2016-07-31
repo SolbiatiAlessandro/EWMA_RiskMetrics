@@ -1,30 +1,17 @@
-# Creates a dataset of max 10 timeSeries objects, getting historical data from yahoofinance.com 
-# Require as argument an array of the quote symbols (of the financial instrument)
-# Usage:
-#	tt <- c("ibm","^gdax",...) #max 10 elems
-#	my_data=create_dataset(tt)
 
-create_dataset <- function(name_codes){
+getprice <- function(name_code){
+	
 	require(tseries)
 	require(timeSeries)
-
-	getprice <- function(name_code){
-		pp <- get.hist.quote(instrument=name_code,quote="Close")
-		pp <- as.timeSeries(pp)
-		pp
-	}
-
-	ts1 <- getprice(name_codes[1])
-	dataset <- cbind(ts1,NA,NA,NA,NA,NA,NA,NA,NA,NA)
-	dataset <- dataset[,1:length(name_codes)]
-	colnames(dataset)=name_codes
+		
 	
-	for(i in 2:length(name_codes)){
-		dataset[,i][1:length(dataset[,1])]=getprice(name_codes[i][1:length(dataset[,1])])
-	}
+	pp <- get.hist.quote(instrument=name_code,quote="Close")
+	pp <- as.timeSeries(pp)
+	pp
 	
-	dataset
+
 }
+
 
 #
 #	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
@@ -149,11 +136,20 @@ study <- function(serie,start,end){
 #	--------------------------------------------------------------------------
 #
 
+#
+#	Alessandro Solbiati - EWMA_RiskMetrics GITHUB project - 26/06/2016 
+#	reference: Quantitative Finance for R (Bee, Santi 2013)
+#	reference: RiskMetrics(TM) Technical Document (JPMorgan and Retuters 1996) 
+#
+#	--------------------------------------------------------------------------
+#
+
 display_study <- function(titles, start, end){
-	data=create_dataset(titles)
+
 	studies_var <- c()
 	for(i in 1:length(titles)){
-		studies_var[i]=study(data[,i],"2000-01-01","2015-12-31")[1]
+		sst <- getprice(titles[i])
+		studies_var[i]=study(sst,"2000-01-01","2015-12-31")[1]
 	}
 
 	studies_var
