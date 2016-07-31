@@ -39,6 +39,9 @@ The project has been developed based on the Techincal Document by JPMorgan and R
 
 ##Italian bank associated risk
 
+![alt tag](https://raw.githubusercontent.com/SolbiatiAlessandro/EWMA-RiskMetrics/blob/master/Case-Studies/chart.jpeg)
+
+
 
 
 
