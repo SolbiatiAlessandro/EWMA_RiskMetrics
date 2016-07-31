@@ -8,10 +8,11 @@
 #
 
 display_study <- function(titles, start, end){
-	data=create_dataset(titles)
+
 	studies_var <- c()
 	for(i in 1:length(titles)){
-		studies_var[i]=study(data[,i],"2000-01-01","2015-12-31")[1]
+		sst <- getprice(titles[i])
+		studies_var[i]=study(sst,"2000-01-01","2015-12-31")[1]
 	}
 
 	studies_var
