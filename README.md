@@ -1,4 +1,4 @@
-# EWMA-RiskMetrics
+# EWMA_RiskMetrics()
 
 An implementation on R of the EWMA filter for volatility by RiskMetrics™ (JPMorgan &amp; Reuters 1996)
 This software use RiskMetrics™ volatility model to compute the risk associated with and asset's return.
