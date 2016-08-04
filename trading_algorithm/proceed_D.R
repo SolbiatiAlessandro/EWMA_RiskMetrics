@@ -36,6 +36,7 @@ proceed <- function(serie,HTA_sign){
 				if(jump==0){
 				output[count_out] <- (ee-ss)/ss
 				print(output[count_out])
+				count_out <- count_out+1
 				if(output[count_out] > 0.075){
 					jump <- 1
 					}
@@ -48,7 +49,7 @@ proceed <- function(serie,HTA_sign){
 				
 		
 		
-				count_out <- count_out+1
+				
 				count_up <- count_up+1
 				
 				print("---------------")
@@ -76,6 +77,7 @@ proceed <- function(serie,HTA_sign){
 				if(jump==0){
 				output[count_out] <- (ee-ss)/ss
 				print(output[count_out])
+				count_out <- count_out+1
 				if(output[count_out]>0.075){
 					jump <- 1
 					}
@@ -86,7 +88,7 @@ proceed <- function(serie,HTA_sign){
 					jump <- 0
 				}
 				
-				count_out <- count_out+1
+				
 				count_down <- count_down+1
 				
 				
