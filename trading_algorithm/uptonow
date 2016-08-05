@@ -760,7 +760,7 @@ trade <- function(name, l=500, tit="BACKTEST", plot=TRUE,capital=1000,cap_med_fa
 trade_basket <- function(titoli,l,single_plot=FALSE){
 	
 	basket <- c(trade(titoli[1],l,plot=FALSE))
-	plot(cumsum(basket[1]),xlab="time",ylab="variations",main="basket backtesting",type="l",ylim=c(-1,1),xlim=c(1,30))
+	plot(cumsum(basket[1]),xlab="time",ylab="variations",main="basket backtesting",type="l",ylim=c(600,1400),xlim=c(1,30))
 	for(i in 2:length(titoli)){
 		new_tit <- trade(titoli[i],l,plot=FALSE)
 		lines(cumsum(new_tit))
@@ -769,3 +769,4 @@ trade_basket <- function(titoli,l,single_plot=FALSE){
 
 	basket
 }
+
