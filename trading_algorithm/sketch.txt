@@ -1,3 +1,5 @@
 trading_algorithm sketch
 
 titoli <- c("AAPL","AXP","BA","CAT","CSCO","CVX","DD","DIS","GE","GS","HD","IBM","INTC","JNJ","JPM","KO","MCD","MMM","MRK","MSFT","NKE","PFE","PG","TRV","UNH","UTX","V","VZ","WMT","XOM")
+
+52.206.152.69  EP2
